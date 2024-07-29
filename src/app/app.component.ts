@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'welcome in Angular Playground App!';
+  title = 'welcome to Angular Playground App!';
 }
