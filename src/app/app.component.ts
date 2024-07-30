@@ -17,6 +17,10 @@ export class AppComponent {
   ]
   title = 'Angular Playground App!';
 
+  addWish(){
+   console.log("Kapow!")
+  }
+
   toggleItem(item: WishItem){
     item.isComplete = !item.isComplete
     console.log(item)
