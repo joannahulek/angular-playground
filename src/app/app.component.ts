@@ -16,4 +16,10 @@ export class AppComponent {
     new WhishItem('Get Coffee', true)
   ]
   title = 'Angular Playground App!';
+
+  toggleItem(item: WhishItem){
+    item.isComplete = !item.isComplete
+    console.log(item)
+
+  }
 }

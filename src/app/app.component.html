@@ -5,10 +5,14 @@
 
   <ng-template #showItems>
     <ul class="wish-list">
-      <li *ngFor="let item of items">
+      <li *ngFor="let item of items; index as id">
         <div class="from-check">
           <label class="from-check-label">
-            <input class="checkbox" type="checkbox">{{item.whishText}}
+            <input class="checkbox" type="checkbox"
+                   [checked]="item.isComplete"
+                   [attr.data-index]="id+1"
+                   (click)="toggleItem(item)"
+            >{{item.whishText}}
           </label>
         </div>
       </li>
