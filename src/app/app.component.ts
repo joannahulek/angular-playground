@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {WhishItem} from "../shared/models/whishItem";
+import {WishItem} from "../shared/models/whishItem";
 import { RouterOutlet } from '@angular/router';
 import {NgForOf, NgIf} from "@angular/common";
 
@@ -11,13 +11,13 @@ import {NgForOf, NgIf} from "@angular/common";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  items: WhishItem[] = [
-    new WhishItem('To learn Angular'),
-    new WhishItem('Get Coffee', true)
+  items: WishItem[] = [
+    new WishItem('To learn Angular'),
+    new WishItem('Get Coffee', true)
   ]
   title = 'Angular Playground App!';
 
-  toggleItem(item: WhishItem){
+  toggleItem(item: WishItem){
     item.isComplete = !item.isComplete
     console.log(item)
 
