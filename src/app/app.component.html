@@ -1,14 +1,12 @@
 <div class="container">
-
   <form>
     <label>Add your wish: </label>
-    <input type="text">
+    <input type="text" name="new-wish-text" [(ngModel)]="WishText">
     <button type="submit"
-            (click)="$event.preventDefault(); addWish()"
-    >Add new wish</button>
+            (click)="$event.preventDefault(); addWish()">Add new wish</button>
   </form>
 
-  <div *ngIf="items.length==0; else showItems">
+  <div *ngIf="items.length === 0; else showItems">
     There are no wishes to display.
   </div>
 
@@ -19,13 +17,12 @@
           <label class="from-check-label">
             <input class="checkbox" type="checkbox"
                    [checked]="item.isComplete"
-                   [attr.data-index]="id+1"
-                   (click)="toggleItem(item)"
-            >{{item.wishText}}
+                   [attr.data-index]="id + 1"
+                   (click)="toggleItem(item)">
+            {{item.wishText}}
           </label>
         </div>
       </li>
     </ul>
   </ng-template>
-
 </div>
