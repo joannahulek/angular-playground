@@ -4,6 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { NgForOf, NgIf } from "@angular/common";
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 
+const filters = [
+  (item: WishItem) => item,
+  (item: WishItem) => item.isComplete,
+  (item: WishItem) => !item.isComplete,
+]
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,10 +20,17 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 export class AppComponent {
   items: WishItem[] = [
     new WishItem('To learn Angular'),
-    new WishItem('Get Coffee', true)
+    new WishItem('Get Coffee', true),
+    new WishItem('To dance bachata', false),
   ];
 
+  listFilter: any = '0'
+
   WishText = '';
+
+  get visibleItems() : WishItem[] {
+    return this.items.filter(filters[this.listFilter])
+  }
 
   addWish() {
     if(this.WishText.trim()) {

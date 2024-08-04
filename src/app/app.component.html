@@ -6,13 +6,13 @@
             (click)="$event.preventDefault(); addWish()">Add new wish</button>
   </form>
 
-  <div *ngIf="items.length === 0; else showItems">
+  <div *ngIf="visibleItems.length === 0; else showItems">
     There are no wishes to display.
   </div>
 
   <ng-template #showItems>
     <ul class="wish-list">
-      <li *ngFor="let item of items; index as id">
+      <li *ngFor="let item of visibleItems; index as id">
         <div class="from-check">
           <label class="from-check-label">
             <input class="checkbox" type="checkbox"
@@ -25,4 +25,13 @@
       </li>
     </ul>
   </ng-template>
+
+  <select class="form-select"
+          [(ngModel)]="listFilter"
+  >
+    <option value="0">All</option>
+    <option value="1">Fulfilled</option>
+    <option value="2">Unfulfilled</option>
+  </select>
+
 </div>
