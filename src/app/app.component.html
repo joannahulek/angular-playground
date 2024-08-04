@@ -1,4 +1,6 @@
 <div class="container">
+
+<!-- addWish() form -->
   <form>
     <label>Add your wish: </label>
     <input type="text" name="new-wish-text" [(ngModel)]="WishText">
@@ -6,10 +8,10 @@
             (click)="$event.preventDefault(); addWish()">Add new wish</button>
   </form>
 
+<!-- items display -->
   <div *ngIf="visibleItems.length === 0; else showItems">
     There are no wishes to display.
   </div>
-
   <ng-template #showItems>
     <ul class="wish-list">
       <li *ngFor="let item of visibleItems; index as id">
@@ -26,6 +28,7 @@
     </ul>
   </ng-template>
 
+<!-- items selector -->
   <select class="form-select"
           [(ngModel)]="listFilter"
   >
