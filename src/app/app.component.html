@@ -5,7 +5,7 @@
   ></add-wish-form>
 
   <wish-list
-    [wishes]="visibleItems"
+    [wishes]="items.filter(filter)"
   ></wish-list>
 
   <wish-filter
