@@ -1,20 +1,15 @@
 <div class="container">
 
   <add-wish-form
-  (newWish) = "items.push($event)"
+    (newWish) = "items.push($event)"
   ></add-wish-form>
 
   <wish-list
-  [wishes]="visibleItems"
+    [wishes]="visibleItems"
   ></wish-list>
 
-<!-- items selector -->
-  <select class="form-select"
-          [(ngModel)]="listFilter"
-  >
-    <option value="0">All</option>
-    <option value="1">Fulfilled</option>
-    <option value="2">Unfulfilled</option>
-  </select>
+  <wish-filter
+    (filter)="filter = $event"
+  ></wish-filter>
 
 </div>
