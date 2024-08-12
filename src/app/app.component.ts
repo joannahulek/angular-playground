@@ -3,6 +3,7 @@ import { WishItem } from "../shared/models/whishItem";
 import { RouterOutlet } from '@angular/router';
 import { NgForOf, NgIf } from "@angular/common";
 import { FormsModule } from '@angular/forms';
+import {WishListComponent} from "./wish-list/wish-list.component";
 
 const filters = [
   (item: WishItem) => item,
@@ -13,9 +14,9 @@ const filters = [
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, NgIf, FormsModule], // Add FormsModule here
+  imports: [RouterOutlet, NgForOf, NgIf, FormsModule, WishListComponent], // Add FormsModule here
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'] // Corrected to styleUrls
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
@@ -30,11 +31,6 @@ export class AppComponent {
 
   get visibleItems() : WishItem[] {
     return this.items.filter(filters[this.listFilter])
-  }
-
-  toggleItem(item: WishItem) {
-    item.isComplete = !item.isComplete;
-    console.log(item);
   }
 
   // addWish() component
