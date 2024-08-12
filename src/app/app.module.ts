@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms'; // Ensure FormsModule is imported
 
 import { AppComponent } from './app.component';
 import { WishListComponent } from './wish-list/wish-list.component'
+import {AddWishFormComponent} from "./add-wish-form/add-wish-form.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    WishListComponent
+    WishListComponent,
+    AddWishFormComponent
   ],
   imports: [
     BrowserModule,

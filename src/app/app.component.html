@@ -1,14 +1,9 @@
 <div class="container">
 
-<!-- addWish() form -->
-  <form>
-    <label>Add your wish: </label>
-    <input type="text" name="new-wish-text" [(ngModel)]="WishText">
-    <button type="submit"
-            (click)="$event.preventDefault(); addWish()">Add new wish</button>
-  </form>
+  <add-wish-form
+  (newWish) = "items.push($event)"
+  ></add-wish-form>
 
-<!-- items display -->
   <wish-list
   [wishes]="visibleItems"
   ></wish-list>
