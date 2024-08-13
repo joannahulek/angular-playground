@@ -1,4 +1,4 @@
-<li>
+<li class="d-flex justify-content-between">
   <div class="from-check">
     <label class="from-check-label" [ngClass]=" (fullfilled?'strikeout text-muted':'')">
       <input class="checkbox" type="checkbox"
@@ -6,5 +6,8 @@
              (click)="toggleFullfilled()">
       {{wishText}}
     </label>
+  </div>
+  <div>
+    <button type="button" class="btn-close"></button>
   </div>
 </li>
