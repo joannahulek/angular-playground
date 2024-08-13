@@ -1,6 +1,6 @@
 <li>
   <div class="from-check">
-    <label class="from-check-label">
+    <label class="from-check-label" [ngClass]=" (fullfilled?'strikeout text-muted':'')">
       <input class="checkbox" type="checkbox"
              [checked]="fullfilled"
              (click)="toggleFullfilled()">
