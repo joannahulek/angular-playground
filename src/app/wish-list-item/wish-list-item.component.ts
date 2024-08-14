@@ -1,8 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {WishItem} from "../../shared/models/whishItem";
 import {NgClass} from "@angular/common";
-import events from "./../../shared/services/EventService"
-
+import {EventService} from "./../../shared/services/EventService"
 
 @Component({
   selector: 'wish-list-item',
@@ -16,15 +15,13 @@ import events from "./../../shared/services/EventService"
 
 export class WishListItemComponent implements OnInit {
   @Input() wish! : WishItem
-  // @Input() fullfilled! : boolean
-  // @Output() fullfilledChange = new EventEmitter<boolean>
-  constructor() {
+  constructor(private events: EventService) {
   }
   ngOnInit() {
   }
 
   removeWish(){
-    events.emit('removeWish', this.wish)
+    this.events.emit('removeWish', this.wish)
   }
 
   toggleFullfilled() {
