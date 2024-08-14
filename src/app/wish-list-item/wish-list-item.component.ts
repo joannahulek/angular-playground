@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {WishItem} from "../../shared/models/whishItem";
 import {NgClass} from "@angular/common";
 import {EventService} from "./../../shared/services/EventService"
