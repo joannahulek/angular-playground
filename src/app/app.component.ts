@@ -21,12 +21,12 @@ import { WishService } from "./wish.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  // items!: WishItem[];
-  items : WishItem[] = [
-    new WishItem("To learn Angular"),
-    new WishItem("Get Coffee", true),
-    new WishItem("To dance bachata")
-  ]
+     items!: WishItem[];
+  // items : WishItem[] = [
+  //   new WishItem("To learn Angular"),
+  //   new WishItem("Get Coffee", true),
+  //   new WishItem("To dance bachata")
+  // ]
 
 
   constructor(private events: EventService, private wishService: WishService) {
@@ -37,9 +37,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.wishService.getWishes().subscribe((data: any) => {
-      this.items = data;
-    });
+    this.wishService.getWishes().subscribe(
+      (data: any) => {
+        this.items = data;
+        },
+      (error:any) =>{
+        alert(error.message)
+      }
+      );
   }
 
   filter: any = () => true;
