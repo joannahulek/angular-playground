@@ -1,18 +1,1 @@
-<div class="container">
-
-  <div class="col-sm-4">
-    <add-wish-form
-      (newWish) = "items.push($event)"
-    ></add-wish-form>
-
-  <wish-list
-    [wishes]="items.filter(filter)"
-  ></wish-list>
-
-    <wish-filter
-      [(filter)]="filter"
-    ></wish-filter>
-  </div>
-
-
-</div>
+<app-wish></app-wish>
