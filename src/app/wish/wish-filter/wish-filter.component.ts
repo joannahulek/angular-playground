@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {WishItem} from "../../shared/models/whishItem";
+import {WishItem} from "../../../shared/models/whishItem";
 
 const filters = [
   (item: WishItem) => item,

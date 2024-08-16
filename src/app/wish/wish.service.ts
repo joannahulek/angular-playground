@@ -1,6 +1,6 @@
 import {ErrorHandler, Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from "@angular/common/http";
-import {WishItem} from "../shared/models/whishItem";
+import {WishItem} from "../../shared/models/whishItem";
 import {catchError, throwError} from "rxjs";
 
 @Injectable({
@@ -38,6 +38,6 @@ export class WishService {
     let options = this.getStandardOptions()
 
     options.headers = options.headers.set('Authorisation', 'value-need-for-authorisation')
-    this.http.post('assets/wishes.json', wish, options)
+    this.http.post('../assets/wishes.json', wish, options)
   }
 }

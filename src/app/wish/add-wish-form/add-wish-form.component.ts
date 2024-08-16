@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {WishItem} from "../../shared/models/whishItem";
+import {WishItem} from "../../../shared/models/whishItem";
 
 @Component({
   selector: 'add-wish-form',

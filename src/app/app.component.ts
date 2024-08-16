@@ -4,13 +4,13 @@ import { NgForOf, NgIf } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { WishListComponent } from "./wish-list/wish-list.component";
-import { AddWishFormComponent } from "./add-wish-form/add-wish-form.component";
-import { WishFilterComponent } from "./wish-filter/wish-filter.component";
+import { WishListComponent } from "./wish/wish-list/wish-list.component";
+import { AddWishFormComponent } from "./wish/add-wish-form/add-wish-form.component";
+import { WishFilterComponent } from "./wish/wish-filter/wish-filter.component";
 
 import { WishItem } from "../shared/models/whishItem";
 import { EventService } from "../shared/services/EventService";
-import { WishService } from "./wish.service";
+import { WishService } from "./wish/wish.service";
 
 @Component({
   selector: 'app-root',
@@ -37,14 +37,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.wishService.getWishes().subscribe(
-      (data: any) => {
-        this.items = data;
-        },
-      (error:any) =>{
-        alert(error.message)
-      }
-      );
+    // this.wishService.getWishes().subscribe(
+    //   (data: any) => {
+    //     this.items = data;
+    //     },
+    //   (error:any) =>{
+    //     alert(error.message)
+    //   }
+    //   );
   }
 
   filter: any = () => true;
