@@ -1,8 +1,20 @@
-import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+import { AppComponent } from './app.component';
+import { WishModule} from "./wish/wish.module";
+
+import { EventService } from '../shared/services/EventService';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    WishModule
+  ],
+  providers: [EventService],
+  bootstrap: [AppComponent]
 })
-export class AppComponent {}
+export class AppModule {}
