@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { WishModule} from "./wish/wish.module";
 
 import { EventService } from '../shared/services/EventService';
+import {ContactComponent} from "./contact/contact.component";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { EventService } from '../shared/services/EventService';
   ],
   imports: [
     BrowserModule,
-    WishModule
+    WishModule,
+    ContactComponent
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

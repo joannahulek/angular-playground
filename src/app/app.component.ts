@@ -11,11 +11,12 @@ import { WishFilterComponent } from "./wish/wish-filter/wish-filter.component";
 import { WishItem } from "../shared/models/whishItem";
 import { EventService } from "../shared/services/EventService";
 import { WishService } from "./wish/wish.service";
+import {ContactComponent} from "./contact/contact.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, NgIf, FormsModule, HttpClientModule, WishListComponent, AddWishFormComponent, WishFilterComponent],
+  imports: [RouterOutlet, NgForOf, NgIf, FormsModule, HttpClientModule, WishListComponent, AddWishFormComponent, WishFilterComponent, ContactComponent],
   providers: [WishService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
