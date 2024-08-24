@@ -14,6 +14,9 @@
         class="form-control"
         placeholder="Enter your name"
       />
+      <div *ngIf="contactForm.get('senderName')?.invalid && (contactForm.get('senderName')?.dirty || contactForm.get('senderName')?.touched)">
+        <small class="text-danger" *ngIf="contactForm.get('senderName')?.hasError('required')">This field is required</small>
+      </div >
     </div>
 
     <!-- Email Input -->
@@ -27,6 +30,12 @@
         class="form-control"
         placeholder="e.mail@example.com"
       />
+      <div *ngIf="contactForm.get('senderEmail')?.invalid && (contactForm.get('senderEmail')?.dirty || contactForm.get('senderEmail')?.touched)">
+        <small class="text-danger" *ngIf="contactForm.get('senderEmail')?.hasError('required')">This field is required</small>
+        <small class="text-danger" *ngIf="contactForm.get('senderEmail')?.hasError('email')">Please enter a valid email</small>
+        <small class="text-danger" *ngIf="contactForm.get('senderEmail')?.hasError('invalidEmailDomain')">invalidEmailDomain</small>
+
+      </div >
     </div>
 
     <!-- Message Text Area -->
@@ -40,6 +49,11 @@
         placeholder="Write your message"
         rows="5"
       ></textarea>
+      <div *ngIf="contactForm.get('senderMessage')?.invalid && (contactForm.get('senderMessage')?.dirty || contactForm.get('senderMessage')?.touched)">
+        <small class="text-danger" *ngIf="contactForm.get('senderMessage')?.hasError('required')">This field is required</small>
+        <small class="text-danger" *ngIf="contactForm.get('senderMessage')?.hasError('minlength')">Your message is too short</small>
+        <small class="text-danger" *ngIf="contactForm.get('senderMessage')?.hasError('maxlength')">Your message is too long</small>
+      </div >
     </div>
 
     <!-- Submit Button -->
@@ -47,6 +61,7 @@
       <button
         type="submit"
         class="btn btn-primary"
+        [disabled]="!contactForm.valid"
       >
         Submit
       </button>
