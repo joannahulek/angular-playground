@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf} from "@angular/common";
 
-import {domainValidator} from "./invalidEmailDomain";
+import {domainValidator} from "./domainValidator";
 
-const invalidEmailDomain = domainValidator(['a.bc', 'ab.cd'])
+const blockedDomains = ['spam', '.bet'];
 
 @Component({
   selector: 'app-contact',
@@ -22,8 +22,8 @@ export class ContactComponent implements OnInit{
 
   contactForm = new FormGroup({
     senderName: new FormControl('', Validators.required),
-    senderEmail: new FormControl('', [Validators.required, Validators.email, invalidEmailDomain]),
-    senderMessage: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10000)])
+    senderEmail: new FormControl('', [Validators.required, Validators.email, domainValidator(blockedDomains)]),
+    senderMessage: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(15)])
   })
 
   submitForm(){
